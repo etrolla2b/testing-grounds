@@ -4,7 +4,7 @@ name: Second
 # or API.
 on:
   workflow_run:
-    workflows: [Manual Test]
+    workflows: [Manual workflow]
     types:
       - completed
 
