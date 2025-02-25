@@ -21,4 +21,4 @@ jobs:
     - name: Run a brief command
       run: |
         echo "Hello world! Run number is: "
-        echo ${{ github.run_id }}
+        echo ${{ github.run_number }}
