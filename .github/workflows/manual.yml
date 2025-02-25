@@ -20,4 +20,4 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a brief command
       run: |
-        echo "Hello world! Run number is: $github.run_number"
+        echo "Hello world! Run number is ::$github.run_number::"
