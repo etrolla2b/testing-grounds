@@ -17,9 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     env:
-      GITHUB_CONTEXT: ${{ toJson(github) }}
+      WORKFLOW_NAME: ${{ toJson(github.workflow) }}
+      RUN_NUMBER: ${{ toJson(github.run_number) }}
+      RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
     steps:
     # Runs a single command using the runners shell
     - name: Run a brief command
       run: |
-        echo "Hello world! $GITHUB_CONTEXT"
+        echo "Running $WORKFLOW_NAME"
+        echo "Build Number $RUN_NUMBER"
+        echo "Run Attempt(s): #RUN_ATTEMPT"
