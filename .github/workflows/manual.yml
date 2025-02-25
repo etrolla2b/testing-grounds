@@ -27,3 +27,4 @@ jobs:
         echo "Running $WORKFLOW_NAME"
         echo "Build Number $RUN_NUMBER"
         echo "Run Attempt(s): $RUN_ATTEMPT"
+        echo Jou
