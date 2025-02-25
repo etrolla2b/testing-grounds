@@ -26,3 +26,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
       run: echo "part 2 failure"
+  success-cont:
+    runs-on: ubuntu-latest
+    needs: on-success
+    steps:
+    - name: testing the needs attribute
+      run: echo "ran AFTER on-success"
+  
