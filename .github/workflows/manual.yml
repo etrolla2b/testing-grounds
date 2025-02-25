@@ -12,7 +12,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  Ooooauuuugh:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -20,5 +20,4 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a brief command
       run: |
-        echo "Hello world! Run number is: "
-        echo ${{ github.run_number }}
+        echo "Hello world! Run number is: $github.run_number"
