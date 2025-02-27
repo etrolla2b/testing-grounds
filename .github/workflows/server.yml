@@ -36,4 +36,4 @@ jobs:
         env:
           OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
           OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
-        run: Write-Output are you interested in a $env:OUTPUT1? or perhaps, an $env:OUTPUT2?
+        run: Write-Output "are you interested in a $env:OUTPUT1? or perhaps, an $env:OUTPUT2?"
