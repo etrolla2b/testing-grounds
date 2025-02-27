@@ -21,3 +21,5 @@ jobs:
         echo "Running $WORKFLOW_NAME"
         echo "Build Number $RUN_NUMBER"
         echo "Run Attempt(s): $RUN_ATTEMPT"
+    - name: Next part of prebuild
+      run: echo "ooh it's prebuilding!"
