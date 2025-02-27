@@ -1,4 +1,4 @@
-name: Second
+name: Server-Dependencies
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -10,15 +10,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  on-success:
+  Success-Check:
     # The type of runner that the job will run on
     runs-on: windows-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
-      run: echo "part 2 success"
-  on-failure:
+      run: echo "previous workflow succeed"
+  Prebuild-Fail:
     # The type of runner that the job will run on
     runs-on: windows-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
@@ -26,10 +26,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
       run: echo "part 2 failure"
-  success-cont:
+  Prebuild-Success:
     runs-on: windows-latest
-    needs: on-success
+    needs: Success-Check
     steps:
     - name: testing the needs attribute
-      run: echo "ran AFTER on-success"
+      run: echo "augh"
   
