@@ -21,7 +21,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a brief command
       run: |
-        echo "Running $WORKFLOW_NAME"
+        echo "Running $env:WORKFLOW_NAME"
         echo "Build Number $RUN_NUMBER"
         echo "Run Attempt(s): $RUN_ATTEMPT"
     - name: Next part of prebuild
