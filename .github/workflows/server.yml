@@ -30,9 +30,9 @@ jobs:
   Build:
     runs-on: windows-latest
     needs: Pre-Build
+    env:
+      OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
+      OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
     steps:
       - name: testing outputs
-      - env:
-          OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
-          OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
       - run: echo "are you interested in a $OUTPUT1? or perhaps, an $OUTPUT2?"
