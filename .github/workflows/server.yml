@@ -23,8 +23,8 @@ jobs:
       shell: pwsh
       run: |
         Write-Output "Running $env:WORKFLOW_NAME"
-        Write-Output "Build Number $RUN_NUMBER"
-        Write-Output "Run Attempt(s): $RUN_ATTEMPT"
+        Write-Output "Build Number $env:RUN_NUMBER"
+        Write-Output "Run Attempt(s): $env:RUN_ATTEMPT"
     - name: Next part of prebuild
       run: Write-Output "ooh it's prebuilding!"
       
@@ -36,4 +36,4 @@ jobs:
         env:
           OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
           OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
-        run: Write-Output are you interested in a $OUTPUT1? or perhaps, an $OUTPUT2?
+        run: Write-Output are you interested in a $env:OUTPUT1? or perhaps, an $env:OUTPUT2?
