@@ -4,7 +4,7 @@ name: Second
 # or API.
 on:
   workflow_run:
-    workflows: [Manual workflow]
+    workflows: [Server]
     types:
       - completed
 
@@ -12,7 +12,7 @@ on:
 jobs:
   on-success:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     # Runs a single command using the runners shell
@@ -20,14 +20,14 @@ jobs:
       run: echo "part 2 success"
   on-failure:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
       run: echo "part 2 failure"
   success-cont:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: on-success
     steps:
     - name: testing the needs attribute
