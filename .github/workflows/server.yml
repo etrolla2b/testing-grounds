@@ -20,8 +20,9 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Run a brief command
+      shell: pwsh
       run: |
-        echo "Running $env:WORKFLOW_NAME"
+        Write-Output "Running $env:WORKFLOW_NAME"
         echo "Build Number $RUN_NUMBER"
         echo "Run Attempt(s): $RUN_ATTEMPT"
     - name: Next part of prebuild
