@@ -10,6 +10,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: windows-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
+    outputs:
+      output1: frog
+      output2: even cooler frog
     env:
       WORKFLOW_NAME: ${{ github.workflow }}
       RUN_NUMBER: ${{ github.run_number }}
@@ -23,3 +26,13 @@ jobs:
         echo "Run Attempt(s): $RUN_ATTEMPT"
     - name: Next part of prebuild
       run: echo "ooh it's prebuilding!"
+
+  Build:
+    runs-on: windows-latest
+    needs: Pre-Build
+    steps:
+      - name: testing outputs
+      - env:
+          OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
+          OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
+      - run: echo "are you interested in a $OUTPUT1? or perhaps, an $OUTPUT2?"
