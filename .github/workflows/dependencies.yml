@@ -4,7 +4,7 @@ name: Server-Dependencies
 # or API.
 on:
   workflow_run:
-    workflows: [Server]
+    workflows: [Web]
     types:
       - completed
 
@@ -17,8 +17,8 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
-      run: echo "previous workflow succeed"
-  Prebuild-Fail:
+      run: echo "doing the dependencies stuff"
+  Fail-Check:
     # The type of runner that the job will run on
     runs-on: windows-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
@@ -26,10 +26,4 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
       run: echo "part 2 failure"
-  Prebuild-Success:
-    runs-on: windows-latest
-    needs: Success-Check
-    steps:
-    - name: testing the needs attribute
-      run: echo "augh"
   
