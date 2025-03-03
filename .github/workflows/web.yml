@@ -1,4 +1,4 @@
-name: Server
+name: Web
 
 on:
   push:
@@ -19,21 +19,41 @@ jobs:
       RUN_ATTEMPT: ${{ github.run_attempt }}
     steps:
     # Runs a single command using the runners shell
-    - name: Run a brief command
+    - name: Create directory
       shell: pwsh
       run: |
         Write-Output "Running $env:WORKFLOW_NAME"
         Write-Output "Build Number $env:RUN_NUMBER"
         Write-Output "Run Attempt(s): $env:RUN_ATTEMPT"
-    - name: Next part of prebuild
+    - name: Copy stuff over to directory
       run: Write-Output "ooh it's prebuilding!"
+    - name: Run file
+      run: Write-Output "ooh im file!"
       
   Build:
     runs-on: windows-latest
     needs: Pre-Build
     steps:
-      - name: testing outputs
+      - name: Get artifacts from pre-build
         env:
           OUTPUT1: ${{ needs.Pre-Build.outputs.output1 }}
           OUTPUT2: ${{ needs.Pre-Build.outputs.output2 }}
         run: Write-Output "are you interested in a $env:OUTPUT1 ? or perhaps, an $env:OUTPUT2 ?"
+      - name: Run big command that does a lot of stuff x86
+        run: Write-Output "ooh this is x86!"
+      - name: Run big command that does a lot of stuff x64
+        run: Write-Output "ooh this is x64!"
+
+  Unit-Testing:
+    runs-on: windows_latest
+    needs: [Pre-Build, Build]
+    steps:
+      - name: run like a whole bunch of tests
+        run: Write-Output "its tests. its a whole lot"
+
+  Deploy:
+    runs-on: windows_latest
+    needs: [Pre-Build, Build, Unit-Testing]
+    steps:
+      - name: Part where it deploys
+        run: Write-Output "this is that part"
