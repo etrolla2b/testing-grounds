@@ -52,7 +52,7 @@ jobs:
         run: Write-Output "its tests. its a whole lot"
 
   Deploy:
-    runs-on: windows_latest
+    runs-on: windows-latest
     needs: [Pre-Build, Build, Unit-Testing]
     steps:
       - name: Part where it deploys
