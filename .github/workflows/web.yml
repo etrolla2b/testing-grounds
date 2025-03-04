@@ -45,7 +45,7 @@ jobs:
         run: Write-Output "ooh this is x64!"
 
   Unit-Testing:
-    runs-on: windows_latest
+    runs-on: windows-latest
     needs: [Pre-Build, Build]
     steps:
       - name: run like a whole bunch of tests
