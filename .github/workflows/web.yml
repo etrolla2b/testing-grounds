@@ -33,6 +33,9 @@ jobs:
   Build:
     runs-on: windows-latest
     needs: Pre-Build
+    strategy:
+      matrix:
+        windows-version: [x86, x64]
     steps:
       - name: Get artifacts from pre-build
         env:
