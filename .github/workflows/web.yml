@@ -12,7 +12,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     outputs:
       output1: "frog"
-      output2: "even cooler frog"
+      output2: "even cooler frog oooo"
     env:
       WORKFLOW_NAME: ${{ github.workflow }}
       RUN_NUMBER: ${{ github.run_number }}
