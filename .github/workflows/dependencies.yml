@@ -25,5 +25,5 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send confirmation of connection
-      run: echo "part 2 failure"
+      run: echo "part 2 failure (never happens)"
   
