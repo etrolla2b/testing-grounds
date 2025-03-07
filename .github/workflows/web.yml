@@ -46,6 +46,7 @@ jobs:
         if: ${{ matrix.windows-version == 'x86' }}
         run: Write-Output "ooh this is x86!"
       - name: Run big command that does a lot of stuff x64
+        if: ${{ matrix.windows-version == 'x64' }}
         run: Write-Output "ooh this is x64!"
 
   Unit-Testing:
