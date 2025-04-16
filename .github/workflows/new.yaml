@@ -18,4 +18,5 @@ jobs:
         uses: microsoft/setup-msbuild@v2
       - name: Download VSTools
         run: choco install visualstudio2022buildtools
-
+      - name: Build app for release 
+        run: msbuild src\a.sln -t:rebuild -verbosity:diag -property:Configuration=Release
