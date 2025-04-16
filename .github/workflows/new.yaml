@@ -18,5 +18,19 @@ jobs:
         uses: microsoft/setup-msbuild@v2
       - name: Download VSTools
         run: choco install visualstudio2022buildtools
-      - name: Build app for release 
-        run: msbuild src\a.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: foobar.txt
+          compression-level: 9 # maximum compression
+        
+
+        
+     # - name: Build app for release 
+     #   run: msbuild src\a.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+  Unit-Testing:
+    runs-on: windows-latest
+    steps:
+    
