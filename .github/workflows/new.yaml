@@ -1,4 +1,4 @@
-name: Web
+name: Testing
 
 on:
   push:
@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: Download DOT.NET
         run: choco install dotnetfx
-      - name: Download VSTools
-        run: choco install visualstudio2022buildtools
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v2
+      - name: Download VSTools
+        run: choco install visualstudio2022buildtools
+
