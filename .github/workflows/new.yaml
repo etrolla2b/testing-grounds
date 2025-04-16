@@ -1,0 +1,20 @@
+name: Web
+
+on:
+  push:
+    # Inputs the workflow accepts.
+    branches: [ "main" ]
+
+jobs:
+  Build:
+    runs-on: windows-latest
+    # strategy:
+     # matrix:
+       # windows-version: [x86, x64]?
+    steps:
+      - name: Download DOT.NET
+        run: choco install dotnetfx
+      - name: Download VSTools
+        run: choco install visualstudio2022buildtools
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
