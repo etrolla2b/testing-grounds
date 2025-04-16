@@ -30,7 +30,7 @@ jobs:
      # - name: Build app for release 
      #   run: msbuild src\a.sln -t:rebuild -verbosity:diag -property:Configuration=Release
 
-  Unit-Testing:
-    runs-on: windows-latest
-    steps:
+  #Unit-Testing:
+  #  runs-on: windows-latest
+  #  steps:
     
