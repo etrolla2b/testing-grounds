@@ -27,7 +27,7 @@ jobs:
         Write-Output "Build Number $env:RUN_NUMBER"
         Write-Output "Run Attempt(s): $env:RUN_ATTEMPT"
         Write-Output "Located at: $env:GITHUB_WORKSPACE"
-        Write-Output "Get-ChildItem -Recurse $env:GITHUB_WORKSPACE | Select Fullname"
+        Get-ChildItem -Recurse $env:GITHUB_WORKSPACE | Select Fullname
     - name: Copy stuff over to directory
       run: Write-Output "ooh it's prebuilding!"
     - name: Run file
