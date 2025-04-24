@@ -17,6 +17,7 @@ jobs:
       WORKFLOW_NAME: ${{ github.workflow }}
       RUN_NUMBER: ${{ github.run_number }}
       RUN_ATTEMPT: ${{ github.run_attempt }}
+      GITHUB_WORKSPACE: ${{ github.workspace }}
     steps:
     # Runs a single command using the runners shell
     - name: Create directory
@@ -25,6 +26,7 @@ jobs:
         Write-Output "Running $env:WORKFLOW_NAME"
         Write-Output "Build Number $env:RUN_NUMBER"
         Write-Output "Run Attempt(s): $env:RUN_ATTEMPT"
+        Write-Output "Located at: $env:GITHUB_WORKSPACE"
     - name: Copy stuff over to directory
       run: Write-Output "ooh it's prebuilding!"
     - name: Run file
