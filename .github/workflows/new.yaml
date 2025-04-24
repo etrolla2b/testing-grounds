@@ -8,6 +8,8 @@ on:
 jobs:
   Build:
     runs-on: windows-latest
+    env:
+      GITHUB_WORKSPACE: ${{ github.workspace }}
     # strategy:
      # matrix:
        # windows-version: [x86, x64]?
@@ -22,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: ././foobar.txt
+          path: $env:GITHUB_WORKSPACE/foobar.txt
           compression-level: 9 # maximum compression
         
 
