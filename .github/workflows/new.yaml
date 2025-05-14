@@ -22,6 +22,8 @@ jobs:
         uses: microsoft/setup-msbuild@v2
       - name: Download VSTools
         run: choco install visualstudio2022buildtools
+      - name: Download NUnit 3 Console
+        run: choco install nunit-console-runner
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
