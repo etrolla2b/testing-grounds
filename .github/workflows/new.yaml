@@ -31,6 +31,8 @@ jobs:
           path: foobar.txt
           compression-level: 9 # maximum compression
           #$env:GITHUB_WORKSPACE/
+      - name: try nunit?
+        run: C:\ProgramData\chocolatey\lib\nunit-console-runner
         
 
         
